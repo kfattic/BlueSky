@@ -114,6 +114,7 @@ if [ "$reKey" == "" ]; then
 	echo command=\"/var/bluesky/.ssh/wrapper.sh\",no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty `cat /usr/local/bin/BlueSky/Server/blueskyd.pub` > /usr/local/bin/BlueSky/Client/.ssh/authorized_keys
 
 	# create server.plist
+	# made this change from issue 9 from peetinc
 	hostKey=`ssh-keyscan -p 3122 -t ed25519 localhost | awk '{ print $2,$3 }'`
 	hostKeyRSA=`ssh-keyscan -p 3122 -t rsa localhost | awk '{ print $2,$3 }'`
 	ipAddress=`curl -s http://ipinfo.io/ip`
